@@ -40,7 +40,7 @@ alias nvzsh="nvim \$(realpath \"${SYNCED_DIR}/.zshrc\")"
 alias java="java -cp '.:$HOME/.local/java/algs4.jar:.output'"
 alias javac="javac -cp '.:$HOME/.local/java/algs4.jar:.output' -d .output"
 
-alias dev=". ./setenv.sh"
+alias dev=". ./.venv/bin/activate"
 
 bindkey -v
 bindkey '^R' history-incremental-search-backward
