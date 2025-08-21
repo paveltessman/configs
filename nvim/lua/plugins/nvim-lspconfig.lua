@@ -4,8 +4,8 @@ return {
     local lspconfig = require("lspconfig")
     lspconfig.lua_ls.setup({})
     lspconfig.pyright.setup({})
+    lspconfig.ts_ls.setup({})
     -- lspconfig.jdtls.setup({})
-
 
     local nmap = function(keys, func, desc)
       if desc then
@@ -17,6 +17,7 @@ return {
 
     nmap('<leader>rn', vim.lsp.buf.rename, '[r]e[n]ame')
     nmap('<leader>ca', vim.lsp.buf.code_action, '[C]ode [A]ction')
+    nmap('<leader>fr', vim.lsp.buf.format, '[F]o[R]mat')
 
     nmap('gd', vim.lsp.buf.definition, '[G]oto [D]efinition')
     nmap('gr', require('telescope.builtin').lsp_references, '[G]oto [R]eferences')
@@ -38,4 +39,3 @@ return {
     end, '[W]orkspace [L]ist Folders')
   end
 }
-

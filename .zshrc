@@ -1,3 +1,6 @@
+export LC_ALL=en_US.UTF-8
+export LANG=en_US.UTF-8
+export EDITOR="vim"
 export SYNCED_DIR="$(dirname $(realpath $HOME/.zshrc))"
 export ZSH="$HOME/.oh-my-zsh"
 export MANPAGER="nvim +Man!"
@@ -10,6 +13,7 @@ alias pushconfig="${SYNCED_DIR}/push.sh"
 alias pullconfig="${SYNCED_DIR}/pull.sh && source \"$HOME/.zshrc\""
 
 alias l="tree -L 1 --dirsfirst --sort name"
+alias win="cd /mnt/c/Users/tessm"
 
 alias tmux="TERM=xterm-256color tmux"
 alias t="TERM=xterm-256color tmux"
@@ -44,6 +48,10 @@ alias dev=". ./.venv/bin/activate"
 
 bindkey -v
 bindkey '^R' history-incremental-search-backward
+
+autoload -Uz edit-command-line
+zle -N edit-command-line
+bindkey '^X^E' edit-command-line
 
 if test -f "${SYNCED_DIR}/zsh_override.sh"; then
     source  "${SYNCED_DIR}/zsh_override.sh"
