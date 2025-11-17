@@ -59,6 +59,7 @@ return
       sources = {
         { name = 'nvim_lsp' },
         { name = 'luasnip' },
+        { name = 'codecompanion', group_index = 2 }, -- Add codecompanion as a source
       },
     }
     end
