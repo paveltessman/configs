@@ -13,7 +13,7 @@ alias pushconfig="${SYNCED_DIR}/push.sh"
 alias pullconfig="${SYNCED_DIR}/pull.sh && source \"$HOME/.zshrc\""
 
 alias l="tree -L 1 --dirsfirst --sort name"
-alias win="cd /mnt/c/Users/tessm"
+alias win="cd /mnt/c/Users/pashahome"
 
 alias tmux="TERM=xterm-256color tmux"
 alias t="TERM=xterm-256color tmux"
@@ -56,3 +56,6 @@ bindkey '^X^E' edit-command-line
 if test -f "${SYNCED_DIR}/zsh_override.sh"; then
     source  "${SYNCED_DIR}/zsh_override.sh"
 fi
+
+eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
+
