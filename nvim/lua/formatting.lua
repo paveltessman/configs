@@ -2,7 +2,7 @@
 require("null-ls").setup({
   sources = {
     require("null-ls").builtins.formatting.black,
-    -- Add other formatters/linters here
+    require("null-ls").builtins.diagnostics.flake8,
   },
 })
 
