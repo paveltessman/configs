@@ -1,6 +1,6 @@
 export LC_ALL=en_US.UTF-8
 export LANG=en_US.UTF-8
-export EDITOR="vim"
+export EDITOR="nvim"
 export SYNCED_DIR="$(dirname $(realpath $HOME/.zshrc))"
 export ZSH="$HOME/.oh-my-zsh"
 export MANPAGER="nvim +Man!"
