@@ -1,0 +1,21 @@
+{
+  "name": "catppuccin-custom-mocha",
+  "displayName": "Catppuccin Custom Mocha",
+  "description": "Custom Catppuccin Mocha with desaturated palette — ported from Neovim config",
+  "version": "1.0.0",
+  "engines": {
+    "vscode": "^1.70.0"
+  },
+  "categories": [
+    "Themes"
+  ],
+  "contributes": {
+    "themes": [
+      {
+        "label": "Catppuccin Custom Mocha",
+        "uiTheme": "vs-dark",
+        "path": "./themes/catppuccin-custom-mocha-color-theme.json"
+      }
+    ]
+  }
+}

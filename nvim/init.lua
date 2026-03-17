@@ -16,3 +16,10 @@ vim.diagnostic.config({
   update_in_insert = false,  -- Don't update diagnostics while typing
   severity_sort = true,      -- Sort by severity
 })
+
+-- Set filetype for .jinja files to enable markdown rendering
+vim.filetype.add({
+  extension = {
+    jinja = "markdown",
+  },
+})

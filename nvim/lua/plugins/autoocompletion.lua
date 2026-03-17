@@ -9,9 +9,6 @@ return
 
       -- Adds LSP completion capabilities
       { 'hrsh7th/cmp-nvim-lsp', commit = "a8912b88ce488f411177fc8aed358b04dc246d7b" },
-
-      -- Adds a number of user-friendly snippets
-      'rafamadriz/friendly-snippets',
     },
     config = function()
     -- [[ Configure nvim-cmp ]]
