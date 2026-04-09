@@ -4,6 +4,12 @@ return {
     vim.lsp.enable("lua_ls")
     vim.lsp.enable("pyright")
     vim.lsp.enable("ts_ls")
+    vim.lsp.enable("gopls")
+    vim.lsp.enable("asm-lsp")
+    vim.lsp.config("asm-lsp", {
+      cmd = { 'asm-lsp' },
+      filetypes = { 'asm', 'vmasm' },
+    })
 
     local nmap = function(keys, func, desc)
       if desc then
