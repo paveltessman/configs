@@ -1,16 +1,16 @@
 return
-  {
-    -- Autocompletion
-    'hrsh7th/nvim-cmp',
-    dependencies = {
-      -- Snippet Engine & its associated nvim-cmp source
-      'L3MON4D3/LuaSnip',
-      'saadparwaiz1/cmp_luasnip',
+{
+  -- Autocompletion
+  'hrsh7th/nvim-cmp',
+  dependencies = {
+    -- Snippet Engine & its associated nvim-cmp source
+    'L3MON4D3/LuaSnip',
+    'saadparwaiz1/cmp_luasnip',
 
-      -- Adds LSP completion capabilities
-      { 'hrsh7th/cmp-nvim-lsp', commit = "a8912b88ce488f411177fc8aed358b04dc246d7b" },
-    },
-    config = function()
+    -- Adds LSP completion capabilities
+    { 'hrsh7th/cmp-nvim-lsp', commit = "a8912b88ce488f411177fc8aed358b04dc246d7b" },
+  },
+  config = function()
     -- [[ Configure nvim-cmp ]]
     -- See `:help cmp`
     local cmp = require 'cmp'
@@ -56,8 +56,7 @@ return
       sources = {
         { name = 'nvim_lsp' },
         { name = 'luasnip' },
-        { name = 'codecompanion', group_index = 2 }, -- Add codecompanion as a source
       },
     }
-    end
-  }
+  end
+}

@@ -1,11 +1,9 @@
 return {
   "neovim/nvim-lspconfig",
   config = function()
-    -- Use the new vim.lsp.config API for Neovim 0.11+
     vim.lsp.enable("lua_ls")
     vim.lsp.enable("pyright")
     vim.lsp.enable("ts_ls")
-    -- vim.lsp.enable("jdtls")
 
     local nmap = function(keys, func, desc)
       if desc then
