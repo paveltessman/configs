@@ -2,13 +2,14 @@ return
 {
   -- Autocompletion
   'hrsh7th/nvim-cmp',
+  commit = "d97d85e01339f01b842e6ec1502f639b080cb0fc",
   dependencies = {
     -- Snippet Engine & its associated nvim-cmp source
-    'L3MON4D3/LuaSnip',
-    'saadparwaiz1/cmp_luasnip',
+    { 'L3MON4D3/LuaSnip',         commit = "3732756842a2f7e0e76a7b0487e9692072857277" },
+    { 'saadparwaiz1/cmp_luasnip', commit = "98d9cb5c2c38532bd9bdb481067b20fea8f32e90" },
 
     -- Adds LSP completion capabilities
-    { 'hrsh7th/cmp-nvim-lsp', commit = "a8912b88ce488f411177fc8aed358b04dc246d7b" },
+    { 'hrsh7th/cmp-nvim-lsp',     commit = "a8912b88ce488f411177fc8aed358b04dc246d7b" },
   },
   config = function()
     -- [[ Configure nvim-cmp ]]

@@ -1,5 +1,6 @@
 return {
   "neovim/nvim-lspconfig",
+  commit = "effe4bf2e1afb881ea67291c648b68dd3dfc927a",
   config = function()
     vim.lsp.enable("lua_ls")
     vim.lsp.enable("pyright")
