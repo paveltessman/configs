@@ -33,7 +33,16 @@ return {
                     base = "#151515",
                     mantle = "#222222",
                     crust = "#333333",
-                }
+                },
+            },
+            highlight_overrides = {
+                mocha = function(colors)
+                    return {
+                        Type = { fg = colors.text },
+                        Identifier = { fg = colors.text },
+                        Number = { fg = colors.text },
+                    }
+                end,
             },
             no_italic = true,
         }

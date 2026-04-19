@@ -13,7 +13,7 @@ local M = {
                 "vim", "vimdoc", "nasm",
                 "javascript", "html", "markdown", "jinja" },
             sync_install = false,
-            highlight = { enable = true },
+            highlight = { enable = false },
             indent = { enable = false },
         })
     end
