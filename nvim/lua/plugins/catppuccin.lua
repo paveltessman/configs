@@ -41,6 +41,9 @@ return {
                         Type = { fg = colors.text },
                         Identifier = { fg = colors.text },
                         Number = { fg = colors.text },
+                        Character = { fg = colors.text },
+                        Constant = { fg = colors.text },
+                        Special = { fg = colors.text },
                     }
                 end,
             },
