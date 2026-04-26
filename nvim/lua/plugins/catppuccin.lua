@@ -39,11 +39,13 @@ return {
                 mocha = function(colors)
                     return {
                         Type = { fg = colors.text },
+                        cType = { fg = colors.text },
                         Identifier = { fg = colors.text },
                         Number = { fg = colors.text },
                         Character = { fg = colors.text },
                         Constant = { fg = colors.text },
                         Special = { fg = colors.text },
+                        ["@function.builtin"] = { fg = colors.text },
                     }
                 end,
             },
