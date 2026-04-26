@@ -7,6 +7,7 @@ return {
     vim.lsp.enable("ts_ls")
     vim.lsp.enable("gopls")
     vim.lsp.enable("asm-lsp")
+    vim.lsp.enable("clangd")
     vim.lsp.config("asm-lsp", {
       cmd = { 'asm-lsp' },
       filetypes = { 'asm', 'vmasm' },

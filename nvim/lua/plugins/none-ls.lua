@@ -11,6 +11,9 @@ return {
         null_ls.setup({
             sources = {
                 require("null-ls").builtins.formatting.black,
+                require("null-ls").builtins.formatting.clang_format.with({
+                    extra_args = { "--style={IndentWidth: 4, BasedOnStyle: LLVM}" },
+                }),
                 require("none-ls.diagnostics.flake8").with({
                     prefer_local = ".venv/bin",
                 }),
