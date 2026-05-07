@@ -11,8 +11,30 @@ services:
     command:
       - "--config.file=/etc/prometheus/prometheus.yml"
       - "--storage.tsdb.path=/prometheus"
-    extra_hosts:
-      - "host.docker.internal:host-gateway"
+
+  node-exporter:
+    image: prom/node-exporter:latest
+    container_name: node-exporter
+    restart: unless-stopped
+    pid: host
+    volumes:
+      - /proc:/host/proc:ro
+      - /sys:/host/sys:ro
+      - /:/rootfs:ro
+      - /run/udev/data:/run/udev/data:ro
+    command:
+      - "--path.procfs=/host/proc"
+      - "--path.sysfs=/host/sys"
+      - "--path.rootfs=/rootfs"
+      - "--path.udev.data=/run/udev/data"
+      - "--collector.filesystem.mount-points-exclude=^/(sys|proc|dev|host|etc)($$|/)"
+
+  libvirt-exporter:
+    image: ghcr.io/inovex/prometheus-libvirt-exporter:latest
+    container_name: libvirt-exporter
+    restart: unless-stopped
+    volumes:
+      - /var/run/libvirt/libvirt-sock-ro:/var/run/libvirt/libvirt-sock-ro:ro
 
 volumes:
   prometheus_data:
