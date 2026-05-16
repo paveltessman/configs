@@ -23,6 +23,7 @@ alias ts="${SYNCED_DIR}/scripts/start-tmux.sh"
 alias gs="git status"
 alias ga="git add"
 alias gd="git diff"
+alias gdgb="git branch -vv | grep ': gone]' | awk '{print \$1}' | xargs git branch -D"
 
 alias p3="python3"
 alias dev=". ./.venv/bin/activate"
