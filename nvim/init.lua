@@ -1,4 +1,5 @@
 require("vim-keymaps")
+require("spaces.life.keymaps")
 require("lazy-config")
 
 
