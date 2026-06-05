@@ -1,5 +1,10 @@
 require("vim-keymaps")
-require("spaces.life.keymaps")
+
+local cwd = vim.fn.getcwd()
+if cwd:match(".*life$") or cwd:match(".*life/") then
+  require("spaces.life")
+end
+
 require("lazy-config")
 
 
