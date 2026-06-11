@@ -45,6 +45,16 @@ function install_nvim() {
     ln -s "$SYNCED_DIR/nvim" "$CONFIG_DIR/nvim"
 }
 
+function install_clang_format() {
+    if [ -f "$HOME/.clang-format" ]; then
+        echo "An old .clang-format file was found."
+        mv "$HOME/.clang-format" "$HOME/.clang-format.old"
+        echo "Moved with an .old suffix."
+    fi
+    ln -s "$SYNCED_DIR/.clang-format" "$HOME/.clang-format"
+}
+
 install_tmux
 install_zsh
 install_nvim
+install_clang_format
