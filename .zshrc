@@ -1,4 +1,5 @@
-export PATH=$PATH:~/.local/bin/
+export PATH="$PATH:$HOME/go/bin"
+export PATH="$PATH:$HOME/.local/bin/"
 export LC_ALL=en_US.UTF-8
 export LANG=en_US.UTF-8
 export EDITOR="nvim"
