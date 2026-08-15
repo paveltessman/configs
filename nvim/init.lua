@@ -27,5 +27,6 @@ vim.diagnostic.config({
 vim.filetype.add({
   extension = {
     jinja = "markdown",
+    templ = "go",
   },
 })
