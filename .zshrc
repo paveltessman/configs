@@ -27,7 +27,7 @@ alias gd="git diff"
 alias gdgb="git branch -vv | grep ': gone]' | awk '{print \$1}' | xargs git branch -D"
 
 alias p3="python3"
-alias dev=". ./.venv/bin/activate"
+alias dev=". ${SYNCED_DIR}/scripts/dev.sh"
 
 bindkey -v
 bindkey '^R' history-incremental-search-backward
