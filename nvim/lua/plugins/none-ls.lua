@@ -12,6 +12,10 @@ return {
             sources = {
                 require("null-ls").builtins.formatting.black,
                 require("null-ls").builtins.formatting.clang_format,
+                require("null-ls").builtins.formatting.prettier.with({
+                    filetypes = { "markdown" },
+                    prefer_local = "node_modules/.bin",
+                }),
                 require("none-ls.diagnostics.flake8").with({
                     prefer_local = ".venv/bin",
                 }),
