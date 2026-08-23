@@ -11,7 +11,8 @@ local M = {
             ensure_installed = {
                 "c", "lua", "python", "go",
                 "vim", "vimdoc", "nasm",
-                "javascript", "html", "markdown", "jinja" },
+                "javascript", "html", "markdown", "jinja",
+                "templ", "css" },
             sync_install = false,
             highlight = { enable = false },
             indent = { enable = false },

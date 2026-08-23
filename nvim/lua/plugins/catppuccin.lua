@@ -37,6 +37,16 @@ return {
             },
             highlight_overrides = {
                 mocha = function(colors)
+
+                    -- Enable treesitter highlight for templ files, because nvim does not
+                    -- have one built-in.
+                    vim.api.nvim_create_autocmd("FileType", {
+                        pattern = "templ",
+                        callback = function()
+                            pcall(vim.treesitter.start)
+                        end,
+                    })
+
                     return {
                         Type = { fg = colors.text },
                         cType = { fg = colors.text },
@@ -47,6 +57,9 @@ return {
                         Special = { fg = colors.text },
                         Label = { fg = colors.text },
                         ["@function.builtin"] = { fg = colors.text },
+                        ["@module.templ"] = { fg = colors.text },
+                        ["@tag.attribute.templ"] = { fg = colors.text },
+                        ["@tag.delimiter.templ"] = { fg = colors.text },
                     }
                 end,
             },

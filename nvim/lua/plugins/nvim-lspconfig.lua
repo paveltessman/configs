@@ -6,6 +6,7 @@ return {
     vim.lsp.enable("pyright")
     vim.lsp.enable("ts_ls")
     vim.lsp.enable("gopls")
+    vim.lsp.enable("templ")
     vim.lsp.enable("asm-lsp")
     vim.lsp.enable("clangd")
     vim.lsp.config("asm-lsp", {
