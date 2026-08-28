@@ -5,6 +5,7 @@ return {
     vim.lsp.enable("lua_ls")
     vim.lsp.enable("pyright")
     vim.lsp.enable("ts_ls")
+    vim.lsp.enable("bashls")
     vim.lsp.enable("gopls")
     vim.lsp.enable("templ")
     vim.lsp.enable("asm-lsp")
@@ -12,6 +13,14 @@ return {
     vim.lsp.config("asm-lsp", {
       cmd = { 'asm-lsp' },
       filetypes = { 'asm', 'vmasm' },
+    })
+
+    -- bash formatting is done through none-ls.
+    vim.lsp.config("bashls", {
+      on_attach = function(client)
+        client.server_capabilities.documentFormattingProvider = false
+        client.server_capabilities.documentRangeFormattingProvider = false
+      end,
     })
 
     local nmap = function(keys, func, desc)
