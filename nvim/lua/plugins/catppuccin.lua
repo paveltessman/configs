@@ -56,10 +56,13 @@ return {
                         Constant = { fg = colors.text },
                         Special = { fg = colors.text },
                         Label = { fg = colors.text },
+                        Boolean = { fg = colors.text },
                         ["@function.builtin"] = { fg = colors.text },
                         ["@module.templ"] = { fg = colors.text },
                         ["@tag.attribute.templ"] = { fg = colors.text },
                         ["@tag.delimiter.templ"] = { fg = colors.text },
+
+                        PreProc = { fg = colors.text },
                     }
                 end,
             },
