@@ -63,6 +63,7 @@ return {
                         ["@tag.delimiter.templ"] = { fg = colors.text },
 
                         PreProc = { fg = colors.text },
+                        Structure = { fg = colors.text },
                     }
                 end,
             },
