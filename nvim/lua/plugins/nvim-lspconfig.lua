@@ -10,6 +10,7 @@ return {
     vim.lsp.enable("templ")
     vim.lsp.enable("asm-lsp")
     vim.lsp.enable("clangd")
+    vim.lsp.enable("squawk")
     vim.lsp.config("asm-lsp", {
       cmd = { 'asm-lsp' },
       filetypes = { 'asm', 'vmasm' },
@@ -21,6 +22,50 @@ return {
         client.server_capabilities.documentFormattingProvider = false
         client.server_capabilities.documentRangeFormattingProvider = false
       end,
+    })
+
+    -- squawk 2.64.0 lints with the default rules in server mode and ignores
+    -- .squawk.toml, unlike the squawk CLI. Read excluded_rules here instead.
+    local squawk_cache = {}
+
+    local squawk_excluded = function(root)
+        if not root then
+            return {}
+        end
+        local path = vim.fs.joinpath(root, '.squawk.toml')
+        local stat = vim.uv.fs_stat(path)
+        if not stat then
+            return {}
+        end
+        local hit = squawk_cache[path]
+        if hit and hit.mtime == stat.mtime.sec then
+            return hit.rules
+        end
+        local text = table.concat(vim.fn.readfile(path), '\n'):gsub('#[^\n]*', '')
+        local rules = {}
+        for rule in (text:match('excluded_rules%s*=%s*%[(.-)%]') or ''):gmatch('["\']([^"\']+)["\']') do
+            rules[rule] = true
+        end
+        squawk_cache[path] = { mtime = stat.mtime.sec, rules = rules }
+        return rules
+    end
+
+    vim.lsp.config("squawk", {
+        cmd = { 'squawk', 'server' },
+        filetypes = { 'sql' },
+        root_markers = { '.squawk.toml', '.git' },
+        handlers = {
+            ['textDocument/diagnostic'] = function(err, result, ctx, cfg)
+                if result and result.items then
+                    local client = vim.lsp.get_client_by_id(ctx.client_id)
+                    local excluded = squawk_excluded(client and client.root_dir)
+                    result.items = vim.tbl_filter(function(item)
+                        return not excluded[item.code]
+                    end, result.items)
+                end
+                return vim.lsp.handlers['textDocument/diagnostic'](err, result, ctx, cfg)
+            end,
+        },
     })
 
     local nmap = function(keys, func, desc)
