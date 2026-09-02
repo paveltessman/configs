@@ -12,6 +12,7 @@ return {
             sources = {
                 require("null-ls").builtins.formatting.black,
                 require("null-ls").builtins.formatting.clang_format,
+                require("null-ls").builtins.formatting.pg_format,
                 require("null-ls").builtins.formatting.shfmt,
                 require("null-ls").builtins.formatting.prettier.with({
                     filetypes = { "markdown" },

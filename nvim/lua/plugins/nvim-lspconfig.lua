@@ -54,6 +54,10 @@ return {
             cmd = { 'squawk', 'server' },
             filetypes = { 'sql' },
             root_markers = { '.squawk.toml', '.git' },
+            -- sql formatting is done through none-ls with pg_format.
+            on_attach = function(client)
+                client.server_capabilities.documentFormattingProvider = false
+            end,
             handlers = {
                 ['textDocument/diagnostic'] = function(err, result, ctx, cfg)
                     if result and result.items then
