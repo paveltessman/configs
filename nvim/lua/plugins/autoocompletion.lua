@@ -1,63 +1,63 @@
 return
 {
-  -- Autocompletion
-  'hrsh7th/nvim-cmp',
-  commit = "d97d85e01339f01b842e6ec1502f639b080cb0fc",
-  dependencies = {
-    -- Snippet Engine & its associated nvim-cmp source
-    { 'L3MON4D3/LuaSnip',         commit = "3732756842a2f7e0e76a7b0487e9692072857277" },
-    { 'saadparwaiz1/cmp_luasnip', commit = "98d9cb5c2c38532bd9bdb481067b20fea8f32e90" },
+    -- Autocompletion
+    'hrsh7th/nvim-cmp',
+    commit = "d97d85e01339f01b842e6ec1502f639b080cb0fc",
+    dependencies = {
+        -- Snippet Engine & its associated nvim-cmp source
+        { 'L3MON4D3/LuaSnip',         commit = "3732756842a2f7e0e76a7b0487e9692072857277" },
+        { 'saadparwaiz1/cmp_luasnip', commit = "98d9cb5c2c38532bd9bdb481067b20fea8f32e90" },
 
-    -- Adds LSP completion capabilities
-    { 'hrsh7th/cmp-nvim-lsp',     commit = "a8912b88ce488f411177fc8aed358b04dc246d7b" },
-  },
-  config = function()
-    -- [[ Configure nvim-cmp ]]
-    -- See `:help cmp`
-    local cmp = require 'cmp'
-    local luasnip = require 'luasnip'
-    require('luasnip.loaders.from_vscode').lazy_load()
-    luasnip.config.setup {}
+        -- Adds LSP completion capabilities
+        { 'hrsh7th/cmp-nvim-lsp',     commit = "a8912b88ce488f411177fc8aed358b04dc246d7b" },
+    },
+    config = function()
+        -- [[ Configure nvim-cmp ]]
+        -- See `:help cmp`
+        local cmp = require 'cmp'
+        local luasnip = require 'luasnip'
+        require('luasnip.loaders.from_vscode').lazy_load()
+        luasnip.config.setup {}
 
-    cmp.setup {
-      snippet = {
-        expand = function(args)
-          luasnip.lsp_expand(args.body)
-        end,
-      },
-      mapping = cmp.mapping.preset.insert {
-        ['<C-n>'] = cmp.mapping.select_next_item(),
-        ['<C-p>'] = cmp.mapping.select_prev_item(),
-        ['<C-d>'] = cmp.mapping.scroll_docs(-4),
-        ['<C-f>'] = cmp.mapping.scroll_docs(4),
-        ['<C-Space>'] = cmp.mapping.complete {},
-        ['<CR>'] = cmp.mapping.confirm {
-          behavior = cmp.ConfirmBehavior.Replace,
-          select = true,
-        },
-        ['<Tab>'] = cmp.mapping(function(fallback)
-          if cmp.visible() then
-            cmp.select_next_item()
-          elseif luasnip.expand_or_locally_jumpable() then
-            luasnip.expand_or_jump()
-          else
-            fallback()
-          end
-        end, { 'i', 's' }),
-        ['<S-Tab>'] = cmp.mapping(function(fallback)
-          if cmp.visible() then
-            cmp.select_prev_item()
-          elseif luasnip.locally_jumpable(-1) then
-            luasnip.jump(-1)
-          else
-            fallback()
-          end
-        end, { 'i', 's' }),
-      },
-      sources = {
-        { name = 'nvim_lsp' },
-        { name = 'luasnip' },
-      },
-    }
-  end
+        cmp.setup {
+            snippet = {
+                expand = function(args)
+                    luasnip.lsp_expand(args.body)
+                end,
+            },
+            mapping = cmp.mapping.preset.insert {
+                ['<C-n>'] = cmp.mapping.select_next_item(),
+                ['<C-p>'] = cmp.mapping.select_prev_item(),
+                ['<C-d>'] = cmp.mapping.scroll_docs(-4),
+                ['<C-f>'] = cmp.mapping.scroll_docs(4),
+                ['<C-Space>'] = cmp.mapping.complete {},
+                ['<CR>'] = cmp.mapping.confirm {
+                    behavior = cmp.ConfirmBehavior.Replace,
+                    select = true,
+                },
+                ['<Tab>'] = cmp.mapping(function(fallback)
+                    if cmp.visible() then
+                        cmp.select_next_item()
+                    elseif luasnip.expand_or_locally_jumpable() then
+                        luasnip.expand_or_jump()
+                    else
+                        fallback()
+                    end
+                end, { 'i', 's' }),
+                ['<S-Tab>'] = cmp.mapping(function(fallback)
+                    if cmp.visible() then
+                        cmp.select_prev_item()
+                    elseif luasnip.locally_jumpable(-1) then
+                        luasnip.jump(-1)
+                    else
+                        fallback()
+                    end
+                end, { 'i', 's' }),
+            },
+            sources = {
+                { name = 'nvim_lsp' },
+                { name = 'luasnip' },
+            },
+        }
+    end
 }

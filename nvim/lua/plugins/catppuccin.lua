@@ -37,7 +37,6 @@ return {
             },
             highlight_overrides = {
                 mocha = function(colors)
-
                     -- Enable treesitter highlight for templ files, because nvim does not
                     -- have one built-in.
                     vim.api.nvim_create_autocmd("FileType", {
