@@ -63,6 +63,7 @@ return {
 
                         PreProc = { fg = colors.text },
                         Structure = { fg = colors.text },
+                        Macro = { fg = colors.text },
                     }
                 end,
             },
