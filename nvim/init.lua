@@ -16,9 +16,9 @@ vim.cmd("TSDisable highlight")
 
 -- Configure LSP diagnostics display
 vim.diagnostic.config({
-    virtual_text = true,    -- Show error messages inline
+    virtual_text = false,   -- Do not show error messages inline
     signs = true,           -- Show signs in the gutter
-    underline = true,       -- Underline errors
+    underline = false,      -- Do not underline errors
     update_in_insert = false, -- Don't update diagnostics while typing
     severity_sort = true,   -- Sort by severity
 })
