@@ -11,6 +11,7 @@ return {
         vim.lsp.enable("asm-lsp")
         vim.lsp.enable("clangd")
         vim.lsp.enable("squawk")
+        vim.lsp.enable("rust_analyzer")
         vim.lsp.config("asm-lsp", {
             cmd = { 'asm-lsp' },
             filetypes = { 'asm', 'vmasm' },

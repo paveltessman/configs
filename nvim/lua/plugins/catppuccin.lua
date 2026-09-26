@@ -61,6 +61,9 @@ return {
                         ["@tag.attribute.templ"] = { fg = colors.text },
                         ["@tag.delimiter.templ"] = { fg = colors.text },
 
+                        ["@lsp.type.namespace.rust"] = { fg = colors.text },
+                        StorageClass = { fg = colors.text },
+
                         PreProc = { fg = colors.text },
                         Structure = { fg = colors.text },
                         Macro = { fg = colors.text },
