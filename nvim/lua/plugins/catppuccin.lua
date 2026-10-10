@@ -67,6 +67,7 @@ return {
                         PreProc = { fg = colors.text },
                         Structure = { fg = colors.text },
                         Macro = { fg = colors.text },
+                        ["@lsp.type.enumMember.rust"] = { fg = colors.text },
                     }
                 end,
             },
