@@ -25,6 +25,13 @@ return {
             end,
         })
 
+        vim.lsp.config("gopls", {
+            settings = {
+                gopls = {
+                    buildFlags = { "-tags=integration" } }
+            }
+        })
+
         -- squawk 2.64.0 lints with the default rules in server mode and ignores
         -- .squawk.toml, unlike the squawk CLI. Read excluded_rules here instead.
         local squawk_cache = {}
